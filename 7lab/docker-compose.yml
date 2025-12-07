@@ -1,0 +1,14 @@
+services:
+  jenkins:
+    build: .
+    privileged: true
+    user: root
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - .:/var/jenkins_home/workspace/openbmc-ci
+      - /home/ksesha/romulus:/opt/romulus
+
+volumes:
+  jenkins_home:
